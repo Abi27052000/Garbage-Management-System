@@ -69,6 +69,7 @@ export function LoginPage() {
           navigate("/reporter/wastage-classifier");
         }
       } else {
+        navigate("/reporter/wastage-classifier");
         toast.error(res.message || "Something went wrong!", {
           position: "top-right",
           autoClose: 3000,

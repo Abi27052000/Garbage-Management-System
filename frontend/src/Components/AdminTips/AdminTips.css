@@ -1,0 +1,67 @@
+.admin-tips-container {
+    padding: 20px;
+}
+
+.tabs {
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    margin-right: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.tip-card {
+    background: #f5f5f5;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.tip-text {
+    font-size: 16px;
+}
+
+.tip-user {
+    font-size: 14px;
+    color: gray;
+}
+
+.status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status.pending {
+    color: orange;
+}
+
+.status.approved {
+    color: green;
+}
+
+.status.rejected {
+    color: red;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.approve-btn {
+    background: green;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.reject-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}

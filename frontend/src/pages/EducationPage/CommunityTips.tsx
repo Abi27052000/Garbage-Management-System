@@ -1,47 +1,70 @@
-import React, { useState } from "react";
+
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./CommunityTips.css";
+import { toastError, toastSucces, toastWarn } from "../../Model/toast";
 
 interface Tip {
-    id: number;
+    _id: string;
     tip: string;
     user: string;
 }
 
-interface CommunityTipsProps {
-    tips: Tip[];
-}
-
-const CommunityTips: React.FC<CommunityTipsProps> = ({ tips: initialTips }) => {
-    const [tips, setTips] = useState<Tip[]>(initialTips);
+const CommunityTips: React.FC = () => {
+    const [tips, setTips] = useState<Tip[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newTip, setNewTip] = useState("");
     const [newUser, setNewUser] = useState("");
 
+
+    useEffect(() => {
+        fetchTips();
+    }, []);
+
+    const fetchTips = async () => {
+        try {
+            const res = await axios.get("http://localhost:3000/api/tips/approved");
+            setTips(res.data);
+        } catch (error) {
+            toastError("Error fetching tips");
+            console.error("Error fetching tips:", error);
+        }
+    };
+
     const openModal = () => setIsModalOpen(true);
+
     const closeModal = () => {
         setIsModalOpen(false);
         setNewTip("");
         setNewUser("");
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         if (newTip.trim() === "" || newUser.trim() === "") return;
 
-        const tipObj: Tip = {
-            id: Date.now(), // simple unique id
-            tip: newTip,
-            user: newUser
-        };
+        try {
+            await axios.post("http://localhost:3000/api/tips/add", {
+                tip: newTip,
+                user: newUser
+            });
 
-        setTips([tipObj, ...tips]);
-        closeModal();
+            toastSucces("Tip submitted! Waiting for admin approval");
+            closeModal();
+
+        } catch (error) {
+            console.error("Error submitting tip:", error);
+            toastError("Error submitting tip");
+        }
     };
 
     return (
         <section className="community-tips-section">
             <h2>Share Your Tips! 💡</h2>
-            <p>Inspire others! Submit your best local recycling or composting success story.</p>
+            <p>Inspire others! Submit your best recycling or composting tip.</p>
 
             <div className="submit-tip-button-container">
                 <button onClick={openModal}>Submit Your Awareness Tip</button>
@@ -68,7 +91,9 @@ const CommunityTips: React.FC<CommunityTipsProps> = ({ tips: initialTips }) => {
                             />
                             <div className="modal-buttons">
                                 <button type="submit">Submit</button>
-                                <button type="button" onClick={closeModal}>Cancel</button>
+                                <button type="button" onClick={closeModal}>
+                                    Cancel
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -76,13 +101,18 @@ const CommunityTips: React.FC<CommunityTipsProps> = ({ tips: initialTips }) => {
             )}
 
             <h3>Community Tips:</h3>
+
             <div className="tips-list">
-                {tips.map((tip: Tip) => (
-                    <div key={tip.id} className="tip-card">
-                        <p className="tip-text">{`"${tip.tip}"`}</p>
-                        <p className="tip-user">- {tip.user}</p>
-                    </div>
-                ))}
+                {tips.length === 0 ? (
+                    <p>No approved tips yet.</p>
+                ) : (
+                    tips.map((tip) => (
+                        <div key={tip._id} className="tip-card">
+                            <p className="tip-text">"{tip.tip}"</p>
+                            <p className="tip-user">- {tip.user}</p>
+                        </div>
+                    ))
+                )}
             </div>
         </section>
     );

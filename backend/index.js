@@ -12,6 +12,7 @@ import chatRouter from "./routers/chatRouter.js";
 import Chat from "./models/Chat.js";
 import User from "./models/User.js";
 import axios from "axios";
+import tipRoutes from "./routers/tipRoutes.js";
 
 dotenv.config();
 
@@ -28,14 +29,17 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from uploads directory
 app.use("/uploads", express.static("uploads"));
 
-// MongoDB connection
+
+
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB_URI).then(() => {
-      console.log("MongoDB Connected");
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     });
+    console.log("MongoDB Connected");
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error.message);
+    console.error("Error connecting to MongoDB:", error);
     process.exit(1);
   }
 };
@@ -55,6 +59,7 @@ app.use("/api/admin", adminRouter);
 app.use("/api/garbage", garbageReportRouter);
 app.use("/api/ask", aiRecomandRouter);
 app.use("/api/chat", chatRouter);
+app.use("/api/tips", tipRoutes);
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 

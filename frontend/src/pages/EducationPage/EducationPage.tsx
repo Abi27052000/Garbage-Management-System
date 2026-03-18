@@ -158,7 +158,7 @@ const EducationPage = () => {
                 
                 <hr />
 
-                <CommunityTips tips={communityTips}/><hr />
+                <CommunityTips /><hr />
                 <QuizSection/><hr />
                  <CollectiveImpact/>
 
