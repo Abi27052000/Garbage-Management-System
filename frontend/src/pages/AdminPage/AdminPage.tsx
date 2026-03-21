@@ -6,6 +6,7 @@ import { AdminCollectors } from "../../Components/AdminCollectors/AdminCollector
 import {CollectorRegister}  from "../../Components/CollecterRegister/CollecterRegister";
 import { useNavigate } from "react-router-dom";
 import AdminTips from "../../Components/AdminTips/AdminTips";
+import GarbageDetectionPage from "../GarbageDetectionPage/GarbageDetectionPage";
 
 export function AdminPage() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export function AdminPage() {
         {activeTab === "collectors" && <AdminCollectors />}
         {activeTab === "Register"  && <CollectorRegister/>}
         {activeTab === "TipsReview"  && <AdminTips/>}
+        {activeTab === "detect" && <GarbageDetectionPage />}
       </div>
     </div>
   );

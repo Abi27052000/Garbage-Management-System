@@ -4,6 +4,7 @@ import {
   FaUser,
   FaSignOutAlt,
   FaComments,
+  FaSearch,
 } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import awarenessImage from "../../assets/images/awareness_of_waste_recycling.png";
@@ -29,6 +30,11 @@ export function CollectorSidebar({
       icon: <FaComments />,
     },
      {
+      id: "detect",
+      label: "Detect Garbage",
+      icon: <FaSearch />,
+    },
+    {
       id: "requestreport",
       label: "Request report",
       icon: <FaCodePullRequest />,

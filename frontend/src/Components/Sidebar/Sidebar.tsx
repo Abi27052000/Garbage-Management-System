@@ -7,6 +7,7 @@ import {
   FaUserAlt,
   FaTrash,
   FaComments,
+  FaSearch,
 } from "react-icons/fa";
 import { toastSucces } from "../../Model/toast";
 import { logout } from "../../utility/api";
@@ -52,8 +53,14 @@ export function Sidebar() {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="chat"
+            <NavLink              to="detect-garbage"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              <FaSearch /> <span>Detect Garbage</span>
+            </NavLink>
+          </li>
+           <li>
+            <NavLink              to="chat"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               <FaComments /> <span>Chat</span>

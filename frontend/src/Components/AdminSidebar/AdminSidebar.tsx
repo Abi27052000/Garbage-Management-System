@@ -1,5 +1,5 @@
 import "./AdminSidebar.css";
-import { FaFileAlt, FaUsers, FaUserShield, FaComments } from "react-icons/fa";
+import { FaFileAlt, FaUsers, FaUserShield, FaComments, FaSearch } from "react-icons/fa";
 import awarenessImage from "../../assets/images/awareness_of_waste_recycling.png";
 import { GiArchiveRegister } from "react-icons/gi";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
@@ -30,6 +30,11 @@ export function AdminSidebar({ activeTab, onTabChange }: AdminSidebarProps) {
       id: "chat",
       label: "Chat",
       icon: <FaComments />,
+    },
+    {
+      id: "detect",
+      label: "Detect Garbage",
+      icon: <FaSearch />,
     },
     {
       id: "Register",

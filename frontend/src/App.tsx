@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CollecterGetRequest } from "./Components/ColectorReportRequest/ColectorReportRequest";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import EducationPage from "./pages/EducationPage/EducationPage";
+import GarbageDetectionPage from "./pages/GarbageDetectionPage/GarbageDetectionPage";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             <Route path="report-garbage" element={<ReportGarbage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="education" element={<EducationPage/>}/>
+            <Route path="detect-garbage" element={<GarbageDetectionPage />}/>
             <Route path="settings" element={<div>settings content here</div>} />
             <Route path="chat"
               element={
