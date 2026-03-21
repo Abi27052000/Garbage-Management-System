@@ -45,7 +45,7 @@ const ChatPage = () => {
     if (user) {
       setCurrentUser(user);
       fetchUsers(user.id);
-      fetchAllUsers();
+      fetchAllUsers(user.id);
     } else {
       // Handle not logged in, but since protected route, shouldn't happen
       console.error("No user found");
@@ -69,8 +69,8 @@ const ChatPage = () => {
     }
   };
 
-  const fetchAllUsers = async () => {
-    const data = await getAllUsers();
+  const fetchAllUsers = async (userId: string) => {
+    const data = await getAllUsers(userId);
     if (data.success) {
       setAllUsers(data.users);
     }
@@ -116,7 +116,7 @@ const ChatPage = () => {
           <div className="search-container">
             <input
               type="text"
-              placeholder="Search users by username..."
+              placeholder="Search users by username or email..."
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-input"
@@ -126,10 +126,14 @@ const ChatPage = () => {
                 {allUsers
                   .filter(
                     (user) =>
+                      currentUser &&
                       user._id !== currentUser.id &&
-                      user.username
+                      (user.username
                         .toLowerCase()
-                        .includes(searchQuery.toLowerCase())
+                        .includes(searchQuery.toLowerCase()) ||
+                        user.email
+                          .toLowerCase()
+                          .includes(searchQuery.toLowerCase()))
                   )
                   .map((user) => (
                     <div
@@ -192,7 +196,7 @@ const ChatPage = () => {
                   <div
                     key={msg._id}
                     className={`message ${
-                      msg.sender._id === currentUser.id ? "sent" : "received"
+                      msg.sender?._id === currentUser?.id ? "sent" : "received"
                     }`}
                   >
                     <p>{msg.message}</p>
@@ -200,7 +204,7 @@ const ChatPage = () => {
                       <span className="timestamp">
                         {new Date(msg.createdAt).toLocaleTimeString()}
                       </span>
-                      {msg.sender._id === currentUser.id && (
+                      {msg.sender?._id === currentUser?.id && (
                         <FaCheck
                           className={`tick ${msg.isSeen ? "seen" : "unseen"}`}
                         />
