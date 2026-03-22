@@ -4,20 +4,15 @@ import { AdminSidebar } from "../../Components/AdminSidebar/AdminSidebar";
 import { AdminReports } from "../../Components/AdminReports/AdminReports";
 import { AdminCollectors } from "../../Components/AdminCollectors/AdminCollectors";
 import {CollectorRegister}  from "../../Components/CollecterRegister/CollecterRegister";
-import { useNavigate } from "react-router-dom";
 import AdminTips from "../../Components/AdminTips/AdminTips";
 import GarbageDetectionPage from "../GarbageDetectionPage/GarbageDetectionPage";
+import ChatPage from "../ChatPage/ChatPage";
 
 export function AdminPage() {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("reports");
 
   const handleTabChange = (tab: string) => {
-    if (tab === "chat") {
-      navigate("/chat");
-    } else {
-      setActiveTab(tab);
-    }
+    setActiveTab(tab);
   };
 
   return (
@@ -29,6 +24,7 @@ export function AdminPage() {
         {activeTab === "Register"  && <CollectorRegister/>}
         {activeTab === "TipsReview"  && <AdminTips/>}
         {activeTab === "detect" && <GarbageDetectionPage />}
+        {activeTab === "chat" && <ChatPage />}
       </div>
     </div>
   );

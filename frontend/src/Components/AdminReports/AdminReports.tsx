@@ -68,7 +68,7 @@ export function AdminReports() {
     }
 
     const data = await response.json();
-    setReports(data || []); // <-- change this line if backend returns array directly
+    setReports(Array.isArray(data) ? data : (data.data || [])); // handle both array and paginated response
   } catch (err) {
     setError(err instanceof Error ? err.message : "An error occurred");
     console.error("Error fetching reports:", err);

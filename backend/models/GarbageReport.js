@@ -73,6 +73,12 @@ const garbageReportSchema = new mongoose.Schema(
       default: "pending",
     },
 
+    collector: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: false,
+    },
+
     assignedAt: {
       type: Date,
     },

@@ -97,8 +97,8 @@ export const getAllGarbageReports = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const reports = await GarbageReport.find(query)
-      .populate("collector", "name email")
-      .populate("reporter", "name email")
+      .populate("collector", "username email")
+      .populate("reporter", "username email")
       .sort(sortBy)
       .skip(skip)
       .limit(parseInt(limit));
@@ -131,8 +131,8 @@ export const getGarbageReportById = async (req, res) => {
     const { id } = req.params;
 
     const report = await GarbageReport.findById(id)
-      .populate("collector", "name email phone")
-      .populate("reporter", "name email");
+      .populate("collector", "username email")
+      .populate("reporter", "username email");
 
     if (!report) {
       return res.status(404).json({
