@@ -210,10 +210,12 @@ export const getChatUsers = async (currentUserId: string) => {
   }
 };
 
-export const getAllUsers = async () => {
+export const getAllUsers = async (currentUserId: string) => {
   try {
     const response = await fetch(`${base_url}/api/chat/users`, {
-      method: "GET",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ currentUserId }),
     });
     const data = await response.json();
     return data;
