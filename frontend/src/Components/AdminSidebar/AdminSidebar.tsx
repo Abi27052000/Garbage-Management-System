@@ -3,6 +3,8 @@ import { FaFileAlt, FaUsers, FaUserShield, FaComments } from "react-icons/fa";
 import awarenessImage from "../../assets/images/awareness_of_waste_recycling.png";
 import { GiArchiveRegister } from "react-icons/gi";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { MdOutlineQuiz } from "react-icons/md";
+import { MdLeaderboard } from "react-icons/md";
 
 interface AdminSidebarProps {
   activeTab: string;
@@ -20,6 +22,16 @@ export function AdminSidebar({ activeTab, onTabChange }: AdminSidebarProps) {
       id: "TipsReview",
       label: "Tips Review",
       icon: <MdOutlineTipsAndUpdates />,
+    },
+     {
+      id: "AddQuiz",
+      label: "Add Quiz",
+      icon: <MdOutlineQuiz />,
+    },
+    {
+      id: "Leaderboard",
+      label: "Leaderboard",
+      icon: <MdLeaderboard />,
     },
     {
       id: "collectors",

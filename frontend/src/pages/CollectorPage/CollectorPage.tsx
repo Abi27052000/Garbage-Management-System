@@ -8,6 +8,7 @@ import { logout } from "../../utility/api";
 import { CollecterGetRequest } from '../../Components/ColectorReportRequest/ColectorReportRequest'
 import ChatPage from "../ChatPage/ChatPage";
 import ProfilePage from "../ProfilePage/ProfilePage";
+import CollectorLeaderboard from "../../Components/CollectorLeaderboard/CollectorLeaderboard";
 
 const CollectorPage = () => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const CollectorPage = () => {
         {activeTab === "requestreport" && <CollecterGetRequest/>}
         {activeTab === "chat" && <ChatPage/>}
         {activeTab === "profile" && <ProfilePage/>}
+        {activeTab === "Leaderboard" && <CollectorLeaderboard/>}
       </div>
     </div>
   );

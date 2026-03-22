@@ -13,6 +13,8 @@ import Chat from "./models/Chat.js";
 import User from "./models/User.js";
 import axios from "axios";
 import tipRoutes from "./routers/tipRoutes.js";
+import adminAddQuizRouter from "./routers/adminAddQuiz.js";
+import collectorLeaderboardRouter from "./routers/leaderboard.js";
 
 dotenv.config();
 
@@ -60,6 +62,8 @@ app.use("/api/garbage", garbageReportRouter);
 app.use("/api/ask", aiRecomandRouter);
 app.use("/api/chat", chatRouter);
 app.use("/api/tips", tipRoutes);
+app.use("/api/quiz", adminAddQuizRouter);
+app.use("/api/collector", collectorLeaderboardRouter);
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 

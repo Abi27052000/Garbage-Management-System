@@ -6,6 +6,8 @@ import { AdminCollectors } from "../../Components/AdminCollectors/AdminCollector
 import {CollectorRegister}  from "../../Components/CollecterRegister/CollecterRegister";
 import { useNavigate } from "react-router-dom";
 import AdminTips from "../../Components/AdminTips/AdminTips";
+import AdminQuizPage from "../../Components/AdminAddQuiz/AdminAddQuiz";
+import { AdminLeaderboard } from "../../Components/AdminLeaderboard/AdminLeaderboard";
 
 export function AdminPage() {
   const navigate = useNavigate();
@@ -27,6 +29,8 @@ export function AdminPage() {
         {activeTab === "collectors" && <AdminCollectors />}
         {activeTab === "Register"  && <CollectorRegister/>}
         {activeTab === "TipsReview"  && <AdminTips/>}
+        {activeTab === "AddQuiz"  && <AdminQuizPage/>}
+        {activeTab === "Leaderboard"  && <AdminLeaderboard/>}
       </div>
     </div>
   );
