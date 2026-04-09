@@ -110,7 +110,11 @@ io.on("connection", (socket) => {
   // Handle sending messages
   socket.on("send_message", async (data) => {
     try {
-      const { senderId, receiverId, message } = data;
+      const { receiverId, message } = data;
+      // Always use the server-authenticated userId as the sender
+      // (never trust the client-provided senderId to prevent spoofing)
+      const senderId = socket.userId;
+      if (!senderId) return;
 
       // Save message to database
       const newMessage = new Chat({

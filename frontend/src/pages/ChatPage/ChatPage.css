@@ -168,7 +168,7 @@
 .last-message {
   margin-top: 5px;
   font-size: 0.8em;
-  color: #666;
+  color: #000;
 }
 
 .last-msg-text {
@@ -181,6 +181,7 @@
 .last-msg-time {
   float: right;
   font-size: 0.7em;
+  color: #000;
 }
 
 .status {
@@ -216,6 +217,25 @@
   background: rgba(255, 255, 255, 0.9);
   font-weight: 600;
 }
+
+.chat-header h3 {
+  margin: 0 0 2px 0;
+}
+
+.typing-indicator {
+  font-size: 0.82em;
+  color: #667eea;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.header-status {
+  font-size: 0.82em;
+  font-weight: 400;
+}
+
+.online-text { color: #28a745; }
+.offline-text { color: #999; }
 
 .messages {
   flex: 1;
