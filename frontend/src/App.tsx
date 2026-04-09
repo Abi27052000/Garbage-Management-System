@@ -53,6 +53,8 @@ function App() {
             <Route path="report-garbage" element={<ReportGarbage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="education" element={<EducationPage/>}/>
+            <Route path="user-leader-board" element={<ReporterLeaderboard/>}/>
+            <Route path="detect-garbage" element={<GarbageDetectionPage />}/>
             <Route path="settings" element={<div>settings content here</div>} />
             <Route path="chat"
               element={
