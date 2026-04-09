@@ -63,11 +63,6 @@ const videos = [
     },
 ];
 
-// Sample data for the Community Pinboard (Can be dynamic later)
-const communityTips = [
-    { id: 1, tip: "I reuse old t-shirts as cleaning rags instead of buying paper towels!", user: "Ravi S." },
-    { id: 2, tip: "Freezing banana peels before composting makes them break down faster. Try it!", user: "Aisha F." },
-];
 
 const EducationPage = () => {
     // State for the Quiz/Challenge feature

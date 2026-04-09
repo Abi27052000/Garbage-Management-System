@@ -1,0 +1,107 @@
+/* .leaderboard-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.leaderboard-item {
+  margin-bottom: 15px;
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.rank {
+  width: 30px;
+}
+
+.name {
+  flex: 1;
+  text-align: left;
+}
+
+.score,
+.percentage {
+  width: 60px;
+  text-align: right;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  text-align: right;
+  transition: width 0.5s ease;
+} */
+
+
+.leaderboard-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.leaderboard-item {
+  margin-bottom: 15px;
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.rank {
+  width: 20px;
+}
+
+.name {
+  flex: 1;
+  text-align: left;
+}
+
+.score,
+.percentage {
+  width: 100px;
+  text-align: right;
+  color: black;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  text-align: right;
+  transition: width 0.5s ease;
+}

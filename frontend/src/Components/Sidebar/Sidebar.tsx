@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { toastSucces } from "../../Model/toast";
 import { logout } from "../../utility/api";
+import { MdLeaderboard } from "react-icons/md";
 
 export function Sidebar() {
   return (
@@ -42,6 +43,14 @@ export function Sidebar() {
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               <FaUserAlt /> <span>Education</span>
+            </NavLink>
+          </li>
+           <li>
+            <NavLink
+              to="user-leader-board"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              <MdLeaderboard /> <span>Leaderboard</span>
             </NavLink>
           </li>
            <li>

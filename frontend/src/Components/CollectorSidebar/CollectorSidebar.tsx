@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import awarenessImage from "../../assets/images/awareness_of_waste_recycling.png";
+import { MdLeaderboard } from "react-icons/md";
 
 interface CollectorSidebarProps {
   activeTab: string;
@@ -38,6 +39,11 @@ export function CollectorSidebar({
       id: "requestreport",
       label: "Request report",
       icon: <FaCodePullRequest />,
+    },
+    {
+      id: "Leaderboard",
+      label: "Leaderboard",
+      icon: <MdLeaderboard />,
     },
     {
       id: "profile",
